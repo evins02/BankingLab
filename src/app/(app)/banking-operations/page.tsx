@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
@@ -10,10 +11,15 @@ const scenarios = SAMPLE_SCENARIOS.filter(
 );
 
 const TOPICS = [
-  { title: "Kontoeröffnung", count: 4, icon: "🏦" },
-  { title: "Zahlungsverkehr", count: 6, icon: "💸" },
-  { title: "Mahnung & Betreibung", count: 3, icon: "📋" },
-  { title: "Settlements", count: 2, icon: "🔄" },
+  {
+    title: "Kontoeröffnung",
+    count: 3,
+    icon: "🏦",
+    href: "/banking-operations/kontoeröffnungen",
+  },
+  { title: "Zahlungsverkehr", count: 0, icon: "💸", href: "#" },
+  { title: "Mahnung & Betreibung", count: 0, icon: "📋", href: "#" },
+  { title: "Settlements", count: 0, icon: "🔄", href: "#" },
 ];
 
 export default function BankingOperationsPage() {
@@ -36,20 +42,23 @@ export default function BankingOperationsPage() {
           </h2>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {TOPICS.map((topic) => (
-              <Card
+              <Link
                 key={topic.title}
-                className="cursor-pointer transition-shadow hover:shadow-md"
+                href={topic.href}
+                className={topic.href === "#" ? "pointer-events-none" : ""}
               >
-                <CardContent className="flex flex-col items-center gap-2 py-4 text-center">
-                  <span className="text-2xl">{topic.icon}</span>
-                  <p className="text-sm font-medium text-text-primary">
-                    {topic.title}
-                  </p>
-                  <p className="text-xs text-text-secondary">
-                    {topic.count} Szenarien
-                  </p>
-                </CardContent>
-              </Card>
+                <Card className="transition-shadow hover:shadow-md">
+                  <CardContent className="flex flex-col items-center gap-2 py-4 text-center">
+                    <span className="text-2xl">{topic.icon}</span>
+                    <p className="text-sm font-medium text-text-primary">
+                      {topic.title}
+                    </p>
+                    <p className="text-xs text-text-secondary">
+                      {topic.count > 0 ? `${topic.count} Szenarien` : "Bald verfügbar"}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>
