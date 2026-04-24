@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
+import { EmptyState } from "@/components/ui/empty-state";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SAMPLE_SCENARIOS } from "@/lib/constants";
@@ -60,11 +61,15 @@ export default function KycPage() {
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-secondary">
             Szenarien
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {scenarios.map((scenario) => (
-              <ScenarioCard key={scenario.id} scenario={scenario} />
-            ))}
-          </div>
+          {scenarios.length === 0 ? (
+            <EmptyState />
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {scenarios.map((scenario) => (
+                <ScenarioCard key={scenario.id} scenario={scenario} />
+              ))}
+            </div>
+          )}
         </section>
       </div>
     </>

@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
+import { EmptyState } from "@/components/ui/empty-state";
 import { Card, CardContent } from "@/components/ui/card";
 import { SAMPLE_SCENARIOS } from "@/lib/constants";
 
@@ -46,18 +47,20 @@ export default function BankingOperationsPage() {
           </div>
         </section>
 
-        {scenarios.length > 0 && (
-          <section>
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-secondary">
-              Alle Szenarien
-            </h2>
+        <section>
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text-secondary">
+            Alle Szenarien
+          </h2>
+          {scenarios.length === 0 ? (
+            <EmptyState />
+          ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {scenarios.map((scenario) => (
                 <ScenarioCard key={scenario.id} scenario={scenario} />
               ))}
             </div>
-          </section>
-        )}
+          )}
+        </section>
       </div>
     </>
   );
