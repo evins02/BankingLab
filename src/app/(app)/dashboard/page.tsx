@@ -5,10 +5,10 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const MODULES = [
   {
-    title: "Finanzieren",
+    title: "Kreditgeschäfte",
     description:
       "Kreditvergabe, Hypotheken und Risikobeurteilung aus drei Perspektiven.",
-    href: "/finanzieren",
+    href: "/kreditgeschaefte",
     icon: TrendingUp,
     status: "active" as const,
     completedScenarios: 1,

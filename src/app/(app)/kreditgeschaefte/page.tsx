@@ -5,19 +5,19 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Badge } from "@/components/ui/badge";
 import { SAMPLE_SCENARIOS } from "@/lib/constants";
 
-const scenarios = SAMPLE_SCENARIOS.filter((s) => s.module === "finanzieren");
+const scenarios = SAMPLE_SCENARIOS.filter((s) => s.module === "kreditgeschaefte");
 
-export default function FinanzierenPage() {
+export default function KreditgeschaeftePage() {
   return (
     <>
       <Header
-        title="Finanzieren"
-        subtitle="Kreditvergabe, Analyse und Risikomanagement"
+        title="Kreditgeschäfte"
+        subtitle="Kreditvergabe, Hypotheken und Risikobeurteilung aus drei Perspektiven."
       />
       <Breadcrumb
         items={[
           { label: "Dashboard", href: "/dashboard" },
-          { label: "Finanzieren" },
+          { label: "Kreditgeschäfte" },
         ]}
       />
       <div className="flex-1 overflow-y-auto p-6">

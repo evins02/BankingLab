@@ -29,7 +29,7 @@ export default function ScenarioDetailPage({
       <Breadcrumb
         items={[
           { label: "Dashboard", href: "/dashboard" },
-          { label: "Finanzieren", href: "/finanzieren" },
+          { label: "Kreditgeschäfte", href: "/kreditgeschaefte" },
           { label: scenario.title },
         ]}
       />
@@ -89,7 +89,7 @@ export default function ScenarioDetailPage({
 }
 
 export async function generateStaticParams() {
-  return SAMPLE_SCENARIOS.filter((s) => s.module === "finanzieren").map(
+  return SAMPLE_SCENARIOS.filter((s) => s.module === "kreditgeschaefte").map(
     (s) => ({ id: s.id })
   );
 }

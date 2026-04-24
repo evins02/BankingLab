@@ -59,6 +59,38 @@ export function Sidebar() {
                     <Badge variant="orange">{item.badge}</Badge>
                   )}
                 </Link>
+
+                {/* Subnavigation — shown when parent is active */}
+                {isActive && item.sections && (
+                  <div className="ml-3 mt-1 border-l-2 border-border pl-3">
+                    {item.sections.map((section) => (
+                      <div key={section.label} className="mb-2">
+                        <p className="mb-1 px-2 text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
+                          {section.label}
+                        </p>
+                        {section.items.map((sub) => {
+                          const subActive =
+                            pathname === sub.href ||
+                            pathname.startsWith(sub.href + "/");
+                          return (
+                            <Link
+                              key={sub.href}
+                              href={sub.href}
+                              className={cn(
+                                "flex items-center rounded-pill px-2 py-1.5 text-xs transition-colors",
+                                subActive
+                                  ? "bg-gray-100 font-medium text-text-primary"
+                                  : "text-text-secondary hover:bg-gray-50 hover:text-text-primary"
+                              )}
+                            >
+                              {sub.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </li>
             );
           })}

@@ -1,4 +1,4 @@
-export type Module = "finanzieren" | "banking-operations" | "kyc";
+export type Module = "kreditgeschaefte" | "banking-operations" | "kyc";
 
 export type Role =
   | "relationship-manager"
@@ -29,9 +29,20 @@ export interface UserProgress {
   currentStreak: number;
 }
 
+export interface NavSubItem {
+  label: string;
+  href: string;
+}
+
+export interface NavSection {
+  label: string;
+  items: NavSubItem[];
+}
+
 export interface NavItem {
   label: string;
   href: string;
   icon: string;
   badge?: number;
+  sections?: NavSection[];
 }

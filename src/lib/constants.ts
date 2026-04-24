@@ -2,7 +2,25 @@ import type { NavItem, Scenario } from "@/types";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: "Dashboard", href: "/dashboard", icon: "LayoutDashboard" },
-  { label: "Finanzieren", href: "/finanzieren", icon: "TrendingUp", badge: 3 },
+  {
+    label: "Kreditgeschäfte",
+    href: "/kreditgeschaefte",
+    icon: "TrendingUp",
+    sections: [
+      {
+        label: "Privatkunde",
+        items: [
+          { label: "Front-Office", href: "/kreditgeschaefte/privatkunde/front-office" },
+        ],
+      },
+      {
+        label: "Firmenkunde",
+        items: [
+          { label: "Front-Office", href: "/kreditgeschaefte/firmenkunde/front-office" },
+        ],
+      },
+    ],
+  },
   {
     label: "Banking Operations",
     href: "/banking-operations",
@@ -14,7 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const SAMPLE_SCENARIOS: Scenario[] = [
   {
     id: "fin-001",
-    module: "finanzieren",
+    module: "kreditgeschaefte",
     title: "KMU-Kreditantrag: Maschinenkauf",
     description:
       "Analysieren Sie den Kreditantrag einer Schreinerei für den Kauf einer CNC-Fräsmaschine. Prüfen Sie Bonität, Sicherheiten und Tragbarkeit.",
@@ -26,7 +44,7 @@ export const SAMPLE_SCENARIOS: Scenario[] = [
   },
   {
     id: "fin-002",
-    module: "finanzieren",
+    module: "kreditgeschaefte",
     title: "Hypothekarkredit: Eigenheim",
     description:
       "Bewerten Sie einen Hypothekarantrag für ein Einfamilienhaus. Prüfen Sie Belehnungswert, Tragbarkeit und Eigenmittel.",
@@ -38,7 +56,7 @@ export const SAMPLE_SCENARIOS: Scenario[] = [
   },
   {
     id: "fin-003",
-    module: "finanzieren",
+    module: "kreditgeschaefte",
     title: "Restrukturierung: Problemengagement",
     description:
       "Ein bestehendes Kreditengagement zeigt erste Warnsignale. Erarbeiten Sie eine Restrukturierungsstrategie.",
