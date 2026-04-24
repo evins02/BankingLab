@@ -22,7 +22,6 @@ export function DossierReview({ scenario, onComplete }: Props) {
 
   // Documents to show in dossier section + possibly-missing section
   const dossierSet = new Set(scenario.dossierDocuments);
-  const requiredSet = new Set(scenario.requiredDocuments);
   // Docs to show as "possibly missing" = required docs not in dossier
   const possiblyMissing = scenario.requiredDocuments.filter(
     (id) => !dossierSet.has(id)
@@ -39,7 +38,7 @@ export function DossierReview({ scenario, onComplete }: Props) {
     if (submitted) return;
     setFlagged((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       return next;
     });
   };
