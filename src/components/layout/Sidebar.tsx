@@ -13,6 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS } from "@/lib/constants";
 import { Badge } from "@/components/ui/badge";
+import { BankingLabLogo } from "@/components/shared/BankingLabLogo";
 
 const ICONS: Record<string, LucideIcon> = {
   LayoutDashboard,
@@ -27,11 +28,8 @@ export function Sidebar() {
   return (
     <aside className="flex h-screen w-60 shrink-0 flex-col border-r border-border bg-surface">
       {/* Logo */}
-      <div className="flex h-16 items-center gap-2.5 border-b border-border px-5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-          <span className="text-sm font-bold text-white">BL</span>
-        </div>
-        <span className="font-semibold text-text-primary">Banking Lab</span>
+      <div className="flex h-16 items-center border-b border-border px-5">
+        <BankingLabLogo size="md" />
       </div>
 
       {/* Navigation */}
