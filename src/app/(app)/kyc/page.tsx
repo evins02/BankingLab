@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,6 +35,12 @@ export default function KycPage() {
       <Header
         title="KYC / Compliance"
         subtitle="Kundendaten, Beneficial Owner und Geldwäschereibekämpfung"
+      />
+      <Breadcrumb
+        items={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "KYC / Compliance" },
+        ]}
       />
       <div className="flex-1 overflow-y-auto p-6">
         <section className="mb-8">

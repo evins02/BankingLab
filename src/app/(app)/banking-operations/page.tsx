@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Card, CardContent } from "@/components/ui/card";
@@ -21,6 +22,12 @@ export default function BankingOperationsPage() {
       <Header
         title="Banking Operations"
         subtitle="Konten, Zahlungen, Mahnwesen und Abwicklung"
+      />
+      <Breadcrumb
+        items={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "Banking Operations" },
+        ]}
       />
       <div className="flex-1 overflow-y-auto p-6">
         <section className="mb-8">

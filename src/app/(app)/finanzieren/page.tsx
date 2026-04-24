@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ScenarioCard } from "@/components/modules/ScenarioCard";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,12 @@ export default function FinanzierenPage() {
       <Header
         title="Finanzieren"
         subtitle="Kreditvergabe, Analyse und Risikomanagement"
+      />
+      <Breadcrumb
+        items={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "Finanzieren" },
+        ]}
       />
       <div className="flex-1 overflow-y-auto p-6">
         <div className="mb-6 flex flex-wrap gap-2">

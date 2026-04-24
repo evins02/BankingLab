@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ChevronLeft, Clock, User } from "lucide-react";
+import { Clock, User } from "lucide-react";
 import { Header } from "@/components/layout/Header";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,14 +26,14 @@ export default function ScenarioDetailPage({
   return (
     <>
       <Header title={scenario.title} />
+      <Breadcrumb
+        items={[
+          { label: "Dashboard", href: "/dashboard" },
+          { label: "Finanzieren", href: "/finanzieren" },
+          { label: scenario.title },
+        ]}
+      />
       <div className="flex-1 overflow-y-auto p-6">
-        <Link
-          href="/finanzieren"
-          className="mb-4 inline-flex items-center gap-1 text-sm text-text-secondary hover:text-text-primary"
-        >
-          <ChevronLeft size={15} /> Zurück zu Finanzieren
-        </Link>
-
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <Card>
